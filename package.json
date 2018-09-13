@@ -1,0 +1,53 @@
+{
+  "name": "@axonize/axokit",
+  "version": "0.1.29",
+  "description": "Axonize UI Components",
+  "main": "lib/@axonize/axokit.js",
+  "scripts": {
+    "build": "webpack --env dev && webpack --env build",
+    "dev": "webpack",
+    "prod": "webpack --env build",
+    "server": "npx styleguidist server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Axonize",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "antd": "^3.7.3"
+  },
+  "devDependencies": {
+    "antd": "^3.7.3",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-import": "^1.8.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "less": "^3.8.0",
+    "less-loader": "^4.1.0",
+    "lodash": "^4.17.10",
+    "polished": "^1.9.3",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-styleguidist": "^7.1.0",
+    "styled-components": "^3.3.3",
+    "svg-inline-loader": "^0.8.0",
+    "webpack": "^4.16.2",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "directories": {
+    "lib": "lib"
+  }
+}
