@@ -130,15 +130,13 @@ export const StyledButton = styled.button`
   ${({ selected, theme }) => selected
     && css`
       color: ${theme.main};
-      border: 1px solid ${theme.main};
+      border: 1px solid ${theme.type === 'dark' ? 'rgb(18, 19, 21)' : theme.main};
       cursor: pointer;
-      background: #fff;
+      background: ${theme.type === 'dark' ? 'rgb(18, 19, 21)' : '#fff'};
 
       &:hover {
-        background: #fff;
-      }
-      &:hover {
-        background: #fff;
+        background: ${theme.type === 'dark' ? 'rgb(18, 19, 21)' : '#fff'};
+        color: ${theme.main};
       }
     `};
 

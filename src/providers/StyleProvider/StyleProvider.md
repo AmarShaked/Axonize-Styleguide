@@ -1,7 +1,7 @@
 ```js
 const theme = {
   main: "#42399b",
-  type: "light",
+  type: "dark",
   rtl: false
 };
 
