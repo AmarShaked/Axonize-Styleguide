@@ -3,11 +3,9 @@ import { lighten, darken } from 'polished';
 import Spinner from '../Spinner';
 
 export const ButtonSpinner = styled(Spinner)`
-  width: 20px;
-  height: 20px;
   display: flex;
   position: absolute;
-  stroke: ${({ type }) => (['danger', 'warning', 'primary'].includes(type) ? '#fff' : '#616161')};
+  fill: ${({ type }) => (['danger', 'warning', 'primary'].includes(type) ? '#fff' : '#616161')};
 `;
 
 export const ButtonIcon = styled.i`
@@ -41,9 +39,10 @@ const getTypeColors = (type, theme) => {
       break;
     case 'subtle':
       background = 'none';
-      active = darken(0.05, theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : theme.main);
+      active = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(9, 30, 66, 0.2)';
       hover = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(9, 30, 66, 0.1)';
       hoverColor = theme.type === 'dark' ? '#B7B7B7' : '';
+      color = '#aaa';
       break;
     case 'link':
       background = 'none';
@@ -92,11 +91,12 @@ export const StyledButton = styled.button`
   align-items: center;
   flex-wrap: nowrap;
   justify-content: center;
-  border-radius: 3px;
+  border-radius: 25px;
   border-width: 0;
   font-size: inherit;
   font-style: normal;
   width: auto;
+  min-width: 32px;
   height: 32px;
   line-height: 32px;
   margin: 0px;
@@ -120,12 +120,6 @@ export const StyledButton = styled.button`
         color: ${theme.main};
       }
     `}
-
-      ${({ rounded }) => rounded
-        && css`
-          width: 32px;
-          border-radius: 50%;
-        `}
 
   ${({ selected, theme }) => selected
     && css`

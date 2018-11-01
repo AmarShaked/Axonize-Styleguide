@@ -12,7 +12,6 @@ Buttons are used as triggers for actions. They are used in forms, toolbars, dial
     Primary
   </Button>
   <Button type="default" icon="fas fa-motorcycle" />
-  <Button type="default" rounded icon="fas fa-motorcycle" />
 </ButtonGroup>
 ```
 
@@ -33,7 +32,6 @@ Loading buttons
   <Button type="primary" loading>
     Danger
   </Button>
-  <Button type="primary" loading rounded />
 </ButtonGroup>
 ```
 
