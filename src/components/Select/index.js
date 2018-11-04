@@ -1,8 +1,8 @@
-import React from 'react';
-import AntdSelect from 'antd/lib/select';
-import StyledSelect from './style/select';
-import Option from './style/option';
-import { withTrack } from '../../providers/TrackingProvider';
+import React from "react";
+import AntdSelect from "antd/lib/select";
+import StyledSelect from "./style/select";
+import Option from "./style/option";
+import { withTrack } from "../../providers/TrackingProvider";
 
 /**
  * Select component to select value from options.
@@ -24,7 +24,7 @@ class Select extends React.PureComponent {
 
   render() {
     const { track, trackingLabel, ...rest } = this.props;
-    return <AntdSelect {...rest} onChange={this.handleChange} />;
+    return <StyledSelect {...rest} onChange={this.handleChange} />;
   }
 }
 

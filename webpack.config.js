@@ -1,92 +1,87 @@
 /* global __dirname, require, module */
 
-const webpack = require('webpack');
-const path = require('path');
-const env = require('yargs').argv.env; // use --env with webpack 2
-const pkg = require('./package.json');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const webpack = require("webpack");
+const path = require("path");
+const env = require("yargs").argv.env; // use --env with webpack 2
+const pkg = require("./package.json");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const libraryName = pkg.name;
 
-let outputFile,
-  mode;
+let outputFile, mode;
 
-if (env === 'build') {
-  mode = 'production';
+if (env === "build") {
+  mode = "production";
   outputFile = `${libraryName}.min.js`;
 } else {
-  mode = 'development';
+  mode = "development";
   outputFile = `${libraryName}.js`;
 }
 
 const config = {
   mode,
   entry: `${__dirname}/src/index.js`,
-  devtool: 'source-map',
+  devtool: "source-map",
   output: {
     path: `${__dirname}/lib`,
     filename: outputFile,
     library: libraryName,
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
+    libraryTarget: "umd",
+    umdNamedDefine: true
   },
   externals: {
     react: {
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'React',
-      root: 'React',
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "React",
+      root: "React"
     },
-    'react-dom': {
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'ReactDOM',
-      root: 'ReactDOM',
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM"
     },
-    antd: 'antd',
+    antd: "antd"
   },
   module: {
     rules: [
       {
         test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/,
-      },
-      {
-        test: /(\.jsx|\.js)$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
+        loader: "babel-loader",
+        exclude: /(node_modules|bower_components)/
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader',
+        loader: "svg-inline-loader"
       },
 
       {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader', // creates style nodes from JS strings
+            loader: "style-loader" // creates style nodes from JS strings
           },
           {
-            loader: 'css-loader', // translates CSS into CommonJS
+            loader: "css-loader" // translates CSS into CommonJS
           },
           {
-            loader: 'less-loader',
+            loader: "less-loader",
             options: {
-              javascriptEnabled: true,
-            },
-          },
+              javascriptEnabled: true
+            }
+          }
         ],
-        exclude: [path.resolve(__dirname, 'node_modules/antd')],
-      },
-    ],
+        exclude: [path.resolve(__dirname, "node_modules/antd")]
+      }
+    ]
   },
   // plugins: [new BundleAnalyzerPlugin()],
   resolve: {
-    modules: [path.resolve('./node_modules'), path.resolve('./src')],
-    extensions: ['.json', '.js'],
-  },
+    modules: [path.resolve("./node_modules"), path.resolve("./src")],
+    extensions: [".json", ".js"]
+  }
 };
 
 module.exports = config;
