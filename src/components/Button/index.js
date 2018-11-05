@@ -1,9 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
-  StyledButton, ButtonIcon, ButtonContent, ButtonSpinner,
-} from './styled';
-import { withTrack } from '../../providers/TrackingProvider';
+  StyledButton,
+  ButtonIcon,
+  ButtonContent,
+  ButtonSpinner
+} from "./styled";
+import { withTrack } from "../../providers/TrackingProvider";
 
 /**
  * A React component that is a base button.
@@ -19,7 +22,14 @@ class Button extends React.PureComponent {
      * The button maintains the width that it would have if the text were visible. */
     loading: PropTypes.bool,
     /** The base styling to apply to the button. */
-    type: PropTypes.oneOf(['default', 'primary', 'subtle', 'link', 'danger', 'warning']),
+    type: PropTypes.oneOf([
+      "default",
+      "primary",
+      "subtle",
+      "link",
+      "danger",
+      "warning"
+    ]),
     /** Set the handler to handle click event */
     onClick: PropTypes.func,
     /** Set the icon of button */
@@ -29,21 +39,21 @@ class Button extends React.PureComponent {
     /** Set if the button is round shape, available only on icon buttons */
     rounded: PropTypes.bool,
     /** Change the style to indicate the button is selected. */
-    selected: PropTypes.bool,
+    selected: PropTypes.bool
   };
 
   static defaultProps = {
     loading: false,
-    type: 'default',
-    icon: '',
+    type: "default",
+    icon: "",
     onClick: null,
     disabled: false,
     rounded: false,
     selected: false,
-    children: null,
+    children: null
   };
 
-  handleClick = (e) => {
+  handleClick = e => {
     const { track, onClick, trackingLabel } = this.props;
 
     if (track && trackingLabel) {
@@ -56,9 +66,7 @@ class Button extends React.PureComponent {
   };
 
   render() {
-    const {
-      children, icon, loading, type, innerRef ...rest
-    } = this.props;
+    const { children, icon, loading, type, innerRef, ...rest } = this.props;
 
     return (
       <StyledButton
@@ -71,7 +79,13 @@ class Button extends React.PureComponent {
         onClick={this.handleClick}
       >
         {loading && <ButtonSpinner type={type} />}
-        {icon && <ButtonIcon withText={!!children} loading={loading} className={icon} />}
+        {icon && (
+          <ButtonIcon
+            withText={!!children}
+            loading={loading}
+            className={icon}
+          />
+        )}
         {children && (
           <ButtonContent loading={loading} withIcon={!!icon}>
             {children}
