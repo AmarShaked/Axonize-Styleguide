@@ -1,7 +1,7 @@
-import React from 'react';
-import _debounce from 'lodash/debounce';
-import { StyledSearch } from './style';
-import { withTrack } from '../../providers/TrackingProvider';
+import React from "react";
+import _debounce from "lodash/debounce";
+import { StyledSearch } from "./style";
+import { withTrack } from "../../providers/TrackingProvider";
 
 /**
  * A React component that is a base input.
@@ -9,7 +9,7 @@ import { withTrack } from '../../providers/TrackingProvider';
  * @example ./Input.md
  */
 class Search extends React.PureComponent {
-  handleChange = (e) => {
+  handleChange = e => {
     const { track, onChange, trackingLabel } = this.props;
     const { value } = e.target;
 
@@ -18,7 +18,10 @@ class Search extends React.PureComponent {
         this.delayedTracking.cancel();
       }
 
-      this.delayedTracking = _debounce(() => track(trackingLabel, { value }), 5000);
+      this.delayedTracking = _debounce(
+        () => track(trackingLabel, { value }),
+        5000
+      );
       this.delayedTracking();
     }
 
@@ -28,8 +31,10 @@ class Search extends React.PureComponent {
   };
 
   render() {
-    const { track, trackingLabel, ...rest } = this.props;
-    return <StyledSearch {...rest} onChange={this.handleChange} />;
+    const { track, trackingLabel, innerRef, ...rest } = this.props;
+    return (
+      <StyledSearch {...rest} ref={innerRef} onChange={this.handleChange} />
+    );
   }
 }
 

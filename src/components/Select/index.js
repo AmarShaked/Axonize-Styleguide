@@ -23,8 +23,10 @@ class Select extends React.PureComponent {
   };
 
   render() {
-    const { track, trackingLabel, ...rest } = this.props;
-    return <StyledSelect {...rest} onChange={this.handleChange} />;
+    const { track, trackingLabel, innerRef, ...rest } = this.props;
+    return (
+      <StyledSelect {...rest} ref={innerRef} onChange={this.handleChange} />
+    );
   }
 }
 

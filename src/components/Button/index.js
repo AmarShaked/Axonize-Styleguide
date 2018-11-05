@@ -57,7 +57,7 @@ class Button extends React.PureComponent {
 
   render() {
     const {
-      children, icon, loading, type, ...rest
+      children, icon, loading, type, innerRef ...rest
     } = this.props;
 
     return (
@@ -67,6 +67,7 @@ class Button extends React.PureComponent {
         icon={icon}
         type={type}
         {...rest}
+        ref={innerRef}
         onClick={this.handleClick}
       >
         {loading && <ButtonSpinner type={type} />}
