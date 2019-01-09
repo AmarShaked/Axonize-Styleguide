@@ -235,7 +235,7 @@ module.exports = {
         },
         {
           rel: 'stylesheet',
-          href: 'https://cdnjs.cloudflare.com/ajax/libs/antd/3.10.4/antd.min.css',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/antd/3.12.1/antd.min.css',
         },
       ],
     },
