@@ -1,10 +1,6 @@
-import Button from './components/Button';
-import ButtonGroup from './components/ButtonGroup';
-import Input from './components/Input';
-import Select from './components/Select';
-import StyleProvider from './providers/StyleProvider';
-import { TrackingProvider } from './providers/TrackingProvider';
-
-export {
-  Button, ButtonGroup, StyleProvider, TrackingProvider, Input, Select,
-};
+export { default as Button } from './components/Button';
+export { default as ButtonGroup } from './components/ButtonGroup';
+export { default as Input } from './components/Input';
+export { default as Select } from './components/Select';
+export { default as StyleProvider } from './providers/StyleProvider';
+export { TrackingProvider } from './providers/TrackingProvider';

@@ -181,6 +181,9 @@ module.exports = {
       ],
     },
   ],
+  styleguideComponents: {
+    Wrapper: path.resolve(__dirname, 'styleguide/Wrapper', 'Wrapper.js'),
+  },
   theme,
   styles,
   webpackConfig: {
@@ -218,9 +221,6 @@ module.exports = {
         },
       ],
     },
-  },
-  styleguideComponents: {
-    Wrapper: path.join(__dirname, 'styleguide/ThemeWrapper'),
   },
   template: {
     head: {
