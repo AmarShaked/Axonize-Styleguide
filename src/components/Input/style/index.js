@@ -1,4 +1,4 @@
-import Input from 'antd/lib/input';
+import { Input } from 'antd';
 import styled from 'styled-components';
 
 export const StyledSearch = styled(Input.Search)`

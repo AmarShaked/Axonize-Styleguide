@@ -1,5 +1,5 @@
 import React from 'react';
-import AntdSelect from 'antd/lib/select';
+import { Select as AntdSelect } from 'antd';
 import StyledSelect from './style/select';
 import { withTrack } from '../../providers/TrackingProvider';
 
