@@ -5,8 +5,6 @@ import { Provider } from './context';
 /**
  * This component provides a tracking function to all React
  * components underneath itself via the context API.
- *
- * @example ./TrackingProvider.md
  */
 export default class TrackingProvider extends React.Component {
   static propTypes = {
@@ -28,10 +26,6 @@ export default class TrackingProvider extends React.Component {
 
   render() {
     const { children } = this.props;
-    return (
-      <Provider value={this.track}>
-        {children}
-      </Provider>
-    );
+    return <Provider value={this.track}>{children}</Provider>;
   }
 }

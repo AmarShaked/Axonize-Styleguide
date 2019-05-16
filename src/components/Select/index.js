@@ -5,8 +5,6 @@ import { withTrack } from '../../providers/TrackingProvider';
 
 /**
  * Select component to select value from options.
- *
- * @example ./Select.md
  */
 class Select extends React.PureComponent {
   handleChange = (value, target) => {

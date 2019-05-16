@@ -1,6 +1,9 @@
 Buttons are used as triggers for actions. They are used in forms, toolbars, dialog footers and as stand-alone action triggers.
 
 ```js
+import React from 'react'
+import ButtonGroup from '../ButtonGroup';
+
 <ButtonGroup>
   <Button>Default</Button>
   <Button type="primary">Primary</Button>
@@ -16,6 +19,8 @@ Buttons are used as triggers for actions. They are used in forms, toolbars, dial
 ```
 
 ```js
+import React from 'react'
+import ButtonGroup from '../ButtonGroup';
 <ButtonGroup>
   <Button selected>Selected</Button>
 </ButtonGroup>
@@ -24,6 +29,8 @@ Buttons are used as triggers for actions. They are used in forms, toolbars, dial
 Loading buttons
 
 ```js
+import React from 'react'
+import ButtonGroup from '../ButtonGroup';
 <ButtonGroup>
   <Button loading>Danger</Button>
   <Button type="danger" loading>
@@ -38,6 +45,8 @@ Loading buttons
 Disabled buttons
 
 ```js
+import React from 'react'
+import ButtonGroup from '../ButtonGroup';
 <ButtonGroup>
   <Button disabled>Default</Button>
   <Button disabled type="subtle">

@@ -4,8 +4,6 @@ import { StyledButtonGroup, StyledGroupItem } from './styled';
 
 /**
  * A React component that is a base button group.
- *
- * @example ./ButtonGroup.md
  */
 class ButtonGroup extends React.PureComponent {
   static propTypes = {
@@ -25,11 +23,7 @@ class ButtonGroup extends React.PureComponent {
           if (!child) {
             return null;
           }
-          return (
-            <StyledGroupItem key={idx}>
-              {child}
-            </StyledGroupItem>
-          );
+          return <StyledGroupItem key={idx}>{child}</StyledGroupItem>;
         })}
       </StyledButtonGroup>
     );

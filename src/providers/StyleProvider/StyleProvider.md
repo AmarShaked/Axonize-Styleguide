@@ -1,4 +1,5 @@
 ```js
+import Button from '../../components/Button';
 const theme = {
   main: "#42399b",
   type: "dark",

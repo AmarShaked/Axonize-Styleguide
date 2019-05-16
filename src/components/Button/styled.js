@@ -1,11 +1,12 @@
-import styled, { css } from 'styled-components';
-import { lighten, darken } from 'polished';
-import Spinner from '../Spinner';
+import styled, { css } from "styled-components";
+import { lighten, darken } from "polished";
+import Spinner from "../Spinner";
 
 export const ButtonSpinner = styled(Spinner)`
   display: flex;
   position: absolute;
-  fill: ${({ type }) => (['danger', 'warning', 'primary'].includes(type) ? '#fff' : '#616161')};
+  fill: ${({ type }) =>
+    ["danger", "warning", "primary"].includes(type) ? "#fff" : "#616161"};
 `;
 
 export const ButtonIcon = styled.i`
@@ -19,7 +20,8 @@ export const ButtonContent = styled.span`
   justify-content: center;
   transition: opacity 0.3s;
   opacity: ${({ loading }) => (loading ? 0 : 1)};
-  margin: ${({ theme, withIcon }) => withIcon && (theme.rtl ? '0 5px 0 0' : '0 0 0 5px')};
+  margin: ${({ theme, withIcon }) =>
+    withIcon && (theme.rtl ? "0 5px 0 0" : "0 0 0 5px")};
 `;
 
 const getTypeColors = (type, theme) => {
@@ -27,52 +29,67 @@ const getTypeColors = (type, theme) => {
   let hover;
   let active;
   let color;
+  let border;
   let hoverColor;
 
   switch (type) {
-    case 'primary':
+    case "primary":
       background = theme.main;
-      color = theme.type === 'dark' ? theme.background : '#fff';
+      color = theme.type === "dark" ? theme.background : "#fff";
       hover = lighten(0.05, theme.main);
       active = darken(0.05, theme.main);
 
       break;
-    case 'subtle':
-      background = 'none';
-      active = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(9, 30, 66, 0.2)';
-      hover = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(9, 30, 66, 0.1)';
-      hoverColor = theme.type === 'dark' ? '#B7B7B7' : '';
-      color = '#aaa';
+    case "subtle":
+      background = "none";
+      active =
+        theme.type === "dark" ? "rgba(0, 0, 0, 0.6)" : "rgba(9, 30, 66, 0.2)";
+      hover =
+        theme.type === "dark" ? "rgba(0, 0, 0, 0.6)" : "rgba(9, 30, 66, 0.1)";
+      hoverColor = theme.type === "dark" ? "#B7B7B7" : "";
+      color = "#aaa";
+      border = `1px solid ${theme.type === "dark" ? "#888" : "#d4d4d4"}`;
       break;
-    case 'link':
-      background = 'none';
+    case "link":
+      background = "none";
 
       break;
-    case 'danger':
-      background = 'rgb(222, 53, 11)';
-      color = '#fff';
-      hover = lighten(0.05, 'rgb(222, 53, 11)');
-      active = darken(0.05, 'rgb(222, 53, 11)');
+    case "danger":
+      background = "rgb(222, 53, 11)";
+      color = "#fff";
+      hover = lighten(0.05, "rgb(222, 53, 11)");
+      active = darken(0.05, "rgb(222, 53, 11)");
 
       break;
-    case 'warning':
-      background = theme.type === 'dark' ? '#FF7600' : 'rgb(255, 171, 0)';
-      color = '#fff';
-      hover = lighten(0.05, theme.type === 'dark' ? '#FF7600' : 'rgb(255, 171, 0)');
-      active = darken(0.05, theme.type === 'dark' ? '#FF7600' : 'rgb(255, 171, 0)');
+    case "warning":
+      background = theme.type === "dark" ? "#FF7600" : "rgb(255, 171, 0)";
+      color = "#fff";
+      hover = lighten(
+        0.05,
+        theme.type === "dark" ? "#FF7600" : "rgb(255, 171, 0)"
+      );
+      active = darken(
+        0.05,
+        theme.type === "dark" ? "#FF7600" : "rgb(255, 171, 0)"
+      );
 
       break;
     default:
-      background = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.4)' : 'rgba(9, 30, 66, 0.04)';
-      hover = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(9, 30, 66, 0.1)';
-      active = theme.type === 'dark' ? 'rgba(0, 0, 0, 0.6)' : 'rgba(9, 30, 66, 0.2)';
-      hoverColor = theme.type === 'dark' ? '#B7B7B7' : '';
+      background = "transparent";
+      hover = theme.type === "dark" ? "rgba(0, 0, 0, 0.6)" : theme.main;
+
+      color = theme.main;
+      active =
+        theme.type === "dark" ? "rgba(0, 0, 0, 0.6)" : "rgba(9, 30, 66, 0.2)";
+      hoverColor = theme.type === "dark" ? "#B7B7B7" : "#fff";
+      border = `1px solid ${theme.main}`;
       break;
   }
 
   return css`
     background: ${background};
     color: ${color};
+    border: ${border};
 
     &:hover {
       background: ${hover};
@@ -92,7 +109,7 @@ export const StyledButton = styled.button`
   flex-wrap: nowrap;
   justify-content: center;
   border-radius: 25px;
-  border-width: 0;
+  border: 0;
   font-size: inherit;
   font-style: normal;
   width: auto;
@@ -100,42 +117,48 @@ export const StyledButton = styled.button`
   height: 32px;
   line-height: 32px;
   margin: 0px;
-  padding: ${({ withText }) => (withText ? '0px 12px' : '0 5px')} ;
+  padding: ${({ withText }) => (withText ? "0px 12px" : "0 5px")} ;
   outline: none !important;
   cursor: pointer;
+
   color: #888888;
   transition: background 0.1s ease-out, box-shadow 0.15s cubic-bezier(0.47, 0.03, 0.49, 1.38);
 
   ${({ type, theme }) => getTypeColors(type, theme)}
-  ${({ float }) => float
-    && css`
+  ${({ float }) =>
+    float &&
+    css`
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
     `}
 
 
-  ${({ type, theme }) => type === 'link'
-    && css`
+  ${({ type, theme }) =>
+    type === "link" &&
+    css`
       &:hover {
         text-decoration: underline;
         color: ${theme.main};
       }
     `}
 
-  ${({ selected, theme }) => selected
-    && css`
+  ${({ selected, theme }) =>
+    selected &&
+    css`
       color: ${theme.main};
-      border: 1px solid ${theme.type === 'dark' ? 'rgb(18, 19, 21)' : theme.main};
+      border: 1px solid
+        ${theme.type === "dark" ? "rgb(18, 19, 21)" : theme.main};
       cursor: pointer;
-      background: ${theme.type === 'dark' ? 'rgb(18, 19, 21)' : '#fff'};
+      background: ${theme.type === "dark" ? "rgb(18, 19, 21)" : "#fff"};
 
       &:hover {
-        background: ${theme.type === 'dark' ? 'rgb(18, 19, 21)' : '#fff'};
+        background: ${theme.type === "dark" ? "rgb(18, 19, 21)" : "#fff"};
         color: ${theme.main};
       }
     `};
 
-  ${({ disabled }) => disabled
-    && css`
+  ${({ disabled }) =>
+    disabled &&
+    css`
       color: rgb(165, 173, 186) !important;
       background: rgba(9, 30, 66, 0.04);
       cursor: not-allowed;
@@ -149,8 +172,9 @@ export const StyledButton = styled.button`
         background: rgba(9, 30, 66, 0.04);
       }
 
-      ${({ type }) => ['link', 'subtle'].includes(type)
-        && css`
+      ${({ type }) =>
+        ["link", "subtle"].includes(type) &&
+        css`
           background: transparent;
 
           &:hover {

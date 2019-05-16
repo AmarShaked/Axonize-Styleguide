@@ -4,8 +4,6 @@ import { ThemeProvider } from 'styled-components';
 
 /**
  * This component provides a theme to all React components underneath itself via the context API.
- *
- * @example ./StyleProvider.md
  */
 class StyleProvider extends React.PureComponent {
   static propTypes = {
@@ -25,11 +23,7 @@ class StyleProvider extends React.PureComponent {
 
   render() {
     const { children, theme } = this.props;
-    return (
-      <ThemeProvider theme={theme}>
-        {children}
-      </ThemeProvider>
-    );
+    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
   }
 }
 export default StyleProvider;

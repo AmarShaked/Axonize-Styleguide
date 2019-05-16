@@ -1,18 +1,16 @@
-import React from "react";
-import _debounce from "lodash/debounce";
-import StyledInput from "./style";
-import { withTrack } from "../../providers/TrackingProvider";
-import Search from "./search";
-import TextArea from "./textarea";
+import React from 'react';
+import _debounce from 'lodash/debounce';
+import StyledInput from './style';
+import { withTrack } from '../../providers/TrackingProvider';
+import Search from './search';
+import TextArea from './textarea';
 
 /**
  * A basic widget for getting the user input is a text field.
  * Keyboard and mouse can be used for providing or changing data.
- *
- * @example ./Input.md
  */
 class Input extends React.PureComponent {
-  handleChange = e => {
+  handleChange = (e) => {
     const { track, onChange, trackingLabel } = this.props;
     const { value } = e.target;
 
@@ -21,10 +19,7 @@ class Input extends React.PureComponent {
         this.delayedTracking.cancel();
       }
 
-      this.delayedTracking = _debounce(
-        () => track(trackingLabel, { value }),
-        5000
-      );
+      this.delayedTracking = _debounce(() => track(trackingLabel, { value }), 5000);
       this.delayedTracking();
     }
 
@@ -34,10 +29,10 @@ class Input extends React.PureComponent {
   };
 
   render() {
-    const { track, trackingLabel, innerRef, ...rest } = this.props;
-    return (
-      <StyledInput {...rest} ref={innerRef} onChange={this.handleChange} />
-    );
+    const {
+      track, trackingLabel, innerRef, ...rest
+    } = this.props;
+    return <StyledInput {...rest} ref={innerRef} onChange={this.handleChange} />;
   }
 }
 
