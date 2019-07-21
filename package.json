@@ -1,6 +1,6 @@
 {
   "name": "@axonize/axokit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Axonize UI Components",
   "main": "lib/@axonize/axokit.js",
   "scripts": {
